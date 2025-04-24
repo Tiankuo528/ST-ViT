@@ -19,7 +19,7 @@ This work utilizes the  ***BoneMet*** dataset for early BCBM diagnosis. The Bone
 The BoneMet dataset is carefully curated and annotated, ensuring high-quality benchmarks for training and validating deep learning models, particularly those designed to leverage spatial-temporal dependencies for medical imaging tasks.
 
 
-Now, our Tiny CropNet dataset is available at [HuggingFace Datasets](https://huggingface.co/datasets/BoneMet/BoneMet/tree/main/Imagery_Dataset/1.%20Rotation-X-ray).
+Now, our BoneMet dataset is available at [HuggingFace Datasets](https://huggingface.co/datasets/BoneMet/BoneMet/tree/main/Imagery_Dataset/1.%20Rotation-X-ray).
 
     
 ## Requirements
@@ -67,30 +67,30 @@ python main_pretrain_st_vit.py
 
 ## Fine-tuning
 
-To fine-tune MMST-ViT for crop yield predictions, use the following command:
+To fine-tune ST-ViT for BCBM early diagnosis, use the following command:
 
 ```python
-# fine-tune
-python main_finetune_mmst_vit.py
+# fine-tune with spatial-temporal alignment
+main_finetune_with_STA.py
+
+# fine-tune without spatial-temporal alignment
+main_finetune_without_STA.py
 ```
 
 ## License
 
-This repository is under the CC-BY-NC 4.0 license. Please refer to [LICENSE](https://github.com/fudong03/MMST-ViT/blob/main/LICENSE) for details.
+This repository is under the CC-BY-NC 4.0 license. Please refer to [LICENSE](https://github.com/Tiankuo528/blob/main/LICENSE) for details.
 
 ## Acknowledgment
 
-This repository is based on the official implementation of [PVT](https://github.com/whai362/PVT) and [MAE](https://github.com/facebookresearch/mae). We thank the authors for releasing the code.
+This repository is based on the official implementation of [Swin](https://github.com/microsoft/Swin-Transformer) and [MAE](https://github.com/facebookresearch/mae). We thank the authors for releasing the code.
 
 ## Citation
 
 ```
-@inproceedings{fudong:iccv23:mmst_vit,
-    author    = {Lin, Fudong and Crawford, Summer and Guillot, Kaleb and Zhang, Yihe and Chen, Yan and Yuan, Xu and Chen, Li and Williams, Shelby and Minvielle, Robert
-and Xiao, Xiangming and Gholson, Drew and Ashwell, Nicolas and Setiyono, Tri and Tubana, Brenda and Peng, Lu and Bayoumi, Magdy and Tzeng, Nian-Feng},
-    title     = {MMST-ViT: Climate Change-aware Crop Yield Prediction via Multi-Modal Spatial-Temporal Vision Transformer},
-    booktitle = {IEEE/CVF International Conference on Computer Vision (ICCV)},
-    year      = {2023},
-    pages     = {5774-5784}
+@inproceedings{chubonemet,
+  title={BoneMet: An Open Large-Scale Multi-Modal Murine Dataset for Breast Tumor Bone Metastasis Diagnosis and Prognosis},
+  author={Chu, Tiankuo and Lin, Fudong and Wang, Shubo and Jiang, Jason and Gong, Wiley Jia-Wei and Yuan, Xu and Wang, Liyun},
+  booktitle={The Thirteenth International Conference on Learning Representations}
 }
 ```
