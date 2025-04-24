@@ -16,8 +16,14 @@ def R2_Score(y_true, y_pred):
 
 
 def PCC(y_true, y_pred):
-    corr, _ = pearsonr(y_true, y_pred)
-    return corr
+    
+    if np.std(y_true) == 0 or np.std(y_pred) == 0:
+        return 1  # Or handle constant array case as needed
+    else:
+         
+    
+        corr, _ = pearsonr(y_true, y_pred)  #corr, p_value
+        return corr
 
 
 def evaluate(y_true, y_pred):

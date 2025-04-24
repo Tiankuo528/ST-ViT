@@ -1,25 +1,26 @@
-# MMST-ViT: Climate Change-aware Crop Yield Prediction via Multi-Modal Spatial-Temporal Vision Transformer
+# ST-ViT: Spatial-Temporal Vision Transformer for Breast Cancer Bone Metastasis Early diagnosis 
 
 ## Model Overview
 
-![mmst-vit-arch](./input/mmst-vit-arch.png)
+![st-vit-arch](./input/st-vit-arch.png)
 
 
 
-This repository provides the official implementation of our proposed Multi-Modal Spatial-Temporal Vision Transformer (MMST-ViT), developed for predicting crop yields at the county level across the United States. It consists of a Multi-Modal Transformer, a Spatial Transformer, and a Temporal Transformer. The Multi-Modal Transformer leverages satellite images and meteorological data during the growing season to capture the direct impact of short-term weather variations on crop growth. The Spatial Transformer learns the high-resolution spatial dependency among counties for precise crop tracking. The Temporal Transformer captures the effects of long-term climate change on crops.
+This repository provides the official implementation of our proposed  Spatial-Temporal Vision Transformer (ST-ViT), developed for diagnosing Breast Cancer Bone Metastasis (BCBM) using Rotation-X-Ray imagery. The MMST-ViT consists of a Multi-Modal Transformer, a Spatial Transformer, and a Temporal Transformer. The  Spatial-Temporal aligned Transformer leverages Rotation-X-Ray images and context data to effectively capture detailed diagnostic information. The Spatial Transformer learns high-resolution spatial dependencies within Rotation-X-Ray images, enhancing precise identification of metastatic lesions. The Temporal Transformer captures sequential imaging features, significantly improving the model's ability to generalize and reducing overfitting by utilizing spatial-temporal alignment (STA).
 
 ## Dataset
 
-This paper utilizes the ***Tiny CropNet*** dataset for accurate county-level crop yield predictions. Specifically, the Tiny CropNet dataset is composed of three modalities, i.e., Sentinel-2 Imagery, WRF-HRRR Computed Dataset, and USDA Crop Dataset,
-with their details outlined below:
+This work utilizes the  ***BoneMet*** dataset for early BCBM diagnosis. The BoneMet dataset comprises two primary modalities, i.e., Rotation-X-Ray Imagery and Clinical Data, detailed as follows:
 
-- **Sentinel-2 Imagery**: The dataset is a set of 384x384 RGB images captured by the Sentinel-2 Earth observation satellite. It provides agriculture imagery for the contiguous U.S. continent from 2017 to 2022 with a 2-week interval. Since precise agricultural tracking requires high-resolution remote sensing data, the image of a county is partitioned into multiple fine-grained grids (9×9 km).
+- **Rotation-X-Ray Imagery**: This modality includes 2D X-ray images that have been spatially and temporally aligned to form cohesive Rotation-X-Ray sequences. The images enable the effective exploitation of spatial-temporal features critical for accurate BCBM diagnosis.
 
-- **WRF-HRRR Computed Dataset**: The dataset, obtained from the Weather Research & Forecasting-based High-Resolution Rapid Refresh Model (WRF-HRRR), provides high-resolution meteorological data for the contiguous U.S. continent. It covers 9 weather parameters from 2017 to 2022.
+- **MiceMediRec**: Accompanying clinical data include patient-specific labels (tumor/nontumor) relevant to BCBM, enhancing diagnostic precision when integrated with Rotation-X-Ray imagery. 
 
-- **USDA Crop Dataset**: The dataset, sourced from the United States Department of Agriculture (USDA), provides annual crop data for major crops grown in the United States (U.S.), including corn, cotton, soybean, winter wheat, etc., on a county-level basis. It covers crop information such as production and yield from 2017 to 2022.
+The BoneMet dataset is carefully curated and annotated, ensuring high-quality benchmarks for training and validating deep learning models, particularly those designed to leverage spatial-temporal dependencies for medical imaging tasks.
 
-Now, our Tiny CropNet dataset is available at [HuggingFace Datasets](https://huggingface.co/datasets/fudong03/Tiny-CropNet/tree/main).
+
+Now, our Tiny CropNet dataset is available at [HuggingFace Datasets](https://huggingface.co/datasets/BoneMet/BoneMet/tree/main/Imagery_Dataset/1%20Rotation-X-ray).
+
 
 
 ## Requirements
@@ -50,17 +51,17 @@ pip install -r requirements.txt
 
 ## Pre-training
 
-![method-pvt-simclr](./input/method-pvt-simclr.png)
+![method-swin-simclr](./input/method-swin-simclr.png)
 
 
 
 The above figure illustrates the architecture of our proposed multi-modal self-supervised pre-training.
 
- To pre-train MMST-ViT, please run the following command:
+ To pre-train ST-ViT, please run the following command:
 
 ```python
 # pre-train
-python main_pretrain_mmst_vit.py
+python main_pretrain_st_vit.py
 ```
 
 

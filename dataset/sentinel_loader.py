@@ -4,6 +4,8 @@ from torch.utils.data import Dataset
 import os
 import numpy as np
 import json
+from PIL import Image
+import torchvision.transforms as transforms
 
 torch.manual_seed(0)
 np.random.seed(0)
@@ -18,11 +20,11 @@ class Sentinel_Dataset(Dataset):
 
         data = json.load(open(json_file))
         for obj in data:
-            self.fips_codes.append(obj["FIPS"])
+            self.fips_codes.append(obj["FIPS"]) #location 
             self.years.append(obj["year"])
 
             tmp_path = []
-            relative_path_list = obj["data"]["sentinel"]
+            relative_path_list = obj["data"]["sentinel"] 
             for relative_path in relative_path_list:
                 tmp_path.append(os.path.join(root_dir, relative_path))
             self.file_paths.append(tmp_path)
@@ -48,13 +50,15 @@ class Sentinel_Dataset(Dataset):
                         temporal_list.append(torch.from_numpy(grids))
                 hf.close()
 
-        x = torch.stack(temporal_list)
+        x = torch.stack(temporal_list)  #the temporal sequence of images for that location and year
 
         return x, fips_code, year
 
 
+
+
 if __name__ == '__main__':
-    root_dir = "/mnt/data/Tiny CropNet"
+    root_dir = "/mnt/data/Tiny CropNet"   
     # train = "./../data/soybean_train.json"
     train = "./../data/soybean_val.json"
     dataset = Sentinel_Dataset(root_dir, train)
@@ -66,3 +70,9 @@ if __name__ == '__main__':
         max_g = max(max_g, tuple(x.shape)[2])
 
     print(max_g)
+
+
+
+
+
+
