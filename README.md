@@ -19,7 +19,7 @@ This work utilizes the  ***BoneMet*** dataset for early BCBM diagnosis. The Bone
 The BoneMet dataset is carefully curated and annotated, ensuring high-quality benchmarks for training and validating deep learning models, particularly those designed to leverage spatial-temporal dependencies for medical imaging tasks.
 
 
-Now, our Tiny CropNet dataset is available at [HuggingFace Datasets](https://huggingface.co/datasets/BoneMet/BoneMet/tree/main/Imagery_Dataset/1%20Rotation-X-ray).
+Now, our Tiny CropNet dataset is available at [HuggingFace Datasets(https://huggingface.co/datasets/BoneMet/BoneMet/tree/main/Imagery_Dataset/1.%20Rotation-X-ray).
 
 
 
