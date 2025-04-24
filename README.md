@@ -79,7 +79,7 @@ main_finetune_without_STA.py
 
 ## License
 
-This repository is under the CC-BY-NC 4.0 license. Please refer to [LICENSE](https://github.com/Tiankuo528/blob/main/LICENSE) for details.
+This repository is under the CC-BY-NC 4.0 license. Please refer to [LICENSE](https://github.com/Tiankuo528/ST-ViT/blob/main/LICENSE) for details.
 
 ## Acknowledgment
 
